@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Surprise Box Birthday Gift</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background-color: #f5f5f5;
+		}
+
+		.container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+		h1 {
+			font-size: 3rem;
+			margin-bottom: 2rem;
+		}
+
+		.box {
+			width: 200px;
+			height: 200px;
+			background-color: #00b7ff;
+			position: relative;
+			cursor: pointer;
+			box-shadow: 0px 0px 15px #00ccff;
+			overflow: hidden;
+		}
+
+		.lid {
+			width: 200px;
+			height: 50px;
+			background-color: #00f7ff;
+			position: absolute;
+			top: -50px;
+			border-radius: 5px 5px 0 0;
+			transform-origin: bottom center;
+			transform: rotateX(70deg);
+			transition: transform 0.3s ease;
+		}
+
+		.lid::before {
+			content: "";
+			display: block;
+			width: 200px;
+			height: 50px;
+			background-color: #fff;
+			position: absolute;
+			bottom: -5px;
+			left: -5px;
+			right: -5px;
+			transform: skew(-20deg);
+		}
+
+		.lid:hover {
+			transform: rotateX(0deg);
+		}
+
+		.base {
+			width: 200px;
+			height: 150px;
+			background-color: #022ff8;
+			position: absolute;
+			bottom: 0;
+			border-radius: 0 0 5px 5px;
+			box-shadow: 0px 0px 15px #031bf1;
+			transition: transform 0.3s ease;
+			transform-origin: top center;
+			transform: rotateX(0deg);
+			overflow: hidden;
+		}
+
+		.base:hover {
+			transform: rotateX(-70deg);
+		}
+
+		#surprise {
+			display: none;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+		}
+
+		#surprise img {
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0px 0px 15px #fff;
+            border: 10px solid #fff;
+            animation: rotate 2s linear forwards;
+        }
+
+		#surprise h2 {
+  font-size: 2rem;
+  margin-top: 25rem;
+  margin-bottom: 15rem;
+  color: #fd0303;
+  text-shadow: 0px 0px 10px #000;
+  animation: blink 2s linear infinite;
+}
+
+#surprise p {
+  font-size: 1.5rem;
+  margin-top: 25rem;
+  margin-bottom: 20.5rem;
+  color: #0cff04;
+  text-shadow: 0px 0px 10px #000;
+  animation: blink 2s linear infinite reverse;
+}
+
+@keyframes blink {
+  0% {
+    color: #fd0303;
+    text-shadow: 0px 0px 10px #000;
+  }
+  50% {
+    color: #0cff04;
+    text-shadow: 0px 0px 10px #fff;
+  }
+  100% {
+    color: #fd0303;
+    text-shadow: 0px 0px 10px #000;
+  }
+}
+
+		#surprise audio {
+			display: none;
+		}
+
+		@keyframes rotate {
+			from {
+				transform: translate(-50%, -50%) rotate(0deg);
+			}
+			to {
+				transform: translate(-50%, -50%) rotate(360deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1></h1>
+		<div class="box" onclick="showSurprise()">
+			<div class="lid"></div>
+			<div class="base"></div>
+		</div>
+		<div id="surprise">
+			<audio id="audio" src="ldk.wav" autoplay></audio>
+			<img src="nisa.png" alt="Surprise Image" id="surprise-img">
+			<h2>Happy Birthday NISA SAYANGKU!</h2>
+			<p>SEMOGA MAKIN SAYANG SAMA AKU.
+                Love You. -DIMAS RAMADHAN
+            </p>
+		</div>
+		<script>
+		function showSurprise() {
+			document.getElementById("surprise").style.display = "block";
+			document.getElementById("audio").play();
+		}
+	</script>
+	</div>
+</body>
+</html>
